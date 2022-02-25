@@ -1,0 +1,4 @@
+[submodule "bmya/bmya-enterprise.git"]
+	path = bmya/bmya-enterprise.git
+	url = git@github.com:bmya/bmya-enterprise.git
+	branch = 15.0
