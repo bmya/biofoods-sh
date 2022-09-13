@@ -14,3 +14,8 @@
 [submodule "bmya/biofoods"]
 	path = bmya/biofoods
 	url = git@github.com:bmya/biofoods.git
+
+[submodule "bmya/stock-logistics-workflow"]
+	path = bmya/stock-logistics-workflow
+	url = git@github.com:bmya/stock-logistics-workflow.git
+	branch = 15.0
