@@ -6,7 +6,7 @@
     'sequence': 1,
     'summary': """A powerful testing tool.Easily clear any odoo object data what you want. """,
     'website': 'www.bonainfo.com',
-    'version': '15.0.0.1',   
+    'version': '17.0.0.1',
     'description': """Business Testing Data Clear. You can define default model group list by yourself to help your work. """,
     'license': 'LGPL-3',
     'support': 'guoyihot@outlook.com',
