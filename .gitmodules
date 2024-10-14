@@ -1,22 +1,24 @@
 [submodule "bmya/odoo-bmya"]
 	path = bmya/odoo-bmya
 	url = git@github.com:bmya/odoo-bmya.git
-	branch = 15.0
-
+	branch = 17.0-dev
 [submodule "bmya/bmya-enterprise"]
 	path = bmya/bmya-enterprise
 	url = git@github.com:bmya/bmya-enterprise.git
-	branch = 15.0
+	branch = 17.0-dev
 [submodule "bmya/website-connectors"]
 	path = bmya/website-connectors
 	url = git@github.com:bmya/website-connectors.git
-	branch = 15.0
+	branch = 17.0_shopify-dev
 [submodule "bmya/biofoods"]
 	path = bmya/biofoods
 	url = git@github.com:bmya/biofoods.git
-	branch = 15.0
-
+	branch = 17.0-dev
 [submodule "bmya/stock-logistics-workflow"]
 	path = bmya/stock-logistics-workflow
 	url = git@github.com:bmya/stock-logistics-workflow.git
-	branch = 15.0
+	branch = 17.0
+[submodule "bmya/bmya-enterprise-release"]
+	path = bmya/bmya-enterprise-release
+	url = git@github.com:bmya/bmya-enterprise-release.git
+	branch = 17.0-dev
