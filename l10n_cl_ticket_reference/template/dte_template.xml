@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="dte_subtemplate" inherit_id="l10n_cl_edi.dte_subtemplate">
+        <xpath expr="//t[@t-if='move.l10n_cl_reference_ids']" position="attributes">
+            <attribute name="t-if">move.l10n_cl_reference_ids and not move.l10n_latam_document_type_id._is_doc_type_electronic_ticket()</attribute>
+        </xpath>
+    </template>
+</odoo>
