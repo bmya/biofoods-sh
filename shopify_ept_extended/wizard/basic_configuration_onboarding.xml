@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit Form View to Modify it -->
+    <record id="shopify_basic_configurations_onboarding_wizard_view" model="ir.ui.view">
+        <field name="name">shopify.basic.configurations.onboarding.shopify_credit_tax_account_id.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="shopify_ept.shopify_basic_configurations_onboarding_wizard_view"/>
+        <field name="priority" eval="99"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@class, 'o_onboard_setting_box') and contains(@invisible, 'shopify_apply_tax_in_order')]" position="replace"/>
+        </field>
+    </record>
+</odoo>

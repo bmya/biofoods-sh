@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_picking_client_order_ref_form" model="ir.ui.view">
+        <field name="name">stock.picking.client_order_ref.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="client_order_ref" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_stock_vpick_tree" model="ir.ui.view">
+        <field name="name">stock.picking.client_order_ref.tree</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="client_order_ref"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
