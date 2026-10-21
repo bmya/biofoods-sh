@@ -46,6 +46,18 @@ REMOVE_VIEW = [
     'l10n_cl_edi_docsonline_connect.view_out_refund_invoice_tree',
 ]
 
+# shopify_l10n_cl depends on shopify_attribute_mapping in 19.0, a module that
+# did not exist in 17.0. The upgrade does not install new dependencies by
+# itself, so without this shopify_l10n_cl is left unloaded and on 17.0.
+# Plain SQL instead of util.force_install_module: by the time this script runs
+# base is already loaded (not 'to upgrade'), and in that case
+# force_install_module goes through upgrade-util's auto-discovery, meant for
+# pre/post scripts of base. Marking the module 'to install' is enough: the
+# loading loop installs it and then picks up shopify_l10n_cl.
+INSTALL_MODULE = [
+    ('shopify_attribute_mapping', 'shopify_l10n_cl'),
+]
+
 
 def migrate(cr, version):
     _logger.info('BMYA-script | fields_client_order_ref 19.0.0.1: removing modules stuck in an inconsistent state')
@@ -53,3 +65,18 @@ def migrate(cr, version):
         util.remove_module(cr, module)
     _logger.info('BMYA-script | fields_client_order_ref 19.0.0.1: removing 17.0 views dropped in 19.0')
     util.remove_views(cr, *REMOVE_VIEW)
+    _logger.info('BMYA-script | fields_client_order_ref 19.0.0.1: installing new dependencies of 19.0 modules')
+    for module, if_installed in INSTALL_MODULE:
+        cr.execute(
+            """
+            UPDATE ir_module_module
+               SET state = 'to install'
+             WHERE name = %s
+               AND state = 'uninstalled'
+               AND EXISTS (SELECT 1 FROM ir_module_module
+                            WHERE name = %s
+                              AND state IN ('installed', 'to upgrade'))
+            """,
+            [module, if_installed],
+        )
+        _logger.info('BMYA-script | %s marked to install: %s', module, bool(cr.rowcount))
